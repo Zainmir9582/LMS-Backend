@@ -7,9 +7,11 @@ import { Class } from 'src/db/entities/class.entity';
 import { ClassModule } from 'src/class/class.module';
 import {StudentModule} from 'src/student/student.module'
 @Module({
-  imports:[TypeOrmModule.forFeature([Cource, Class]), 
-  forwardRef(() => StudentModule),
-],
+  imports: [
+    TypeOrmModule.forFeature([Cource, Class]),
+    forwardRef(() => ClassModule),
+    forwardRef(() => StudentModule),
+  ],
   controllers: [CourceController],
   providers: [CourceService],
   exports:[CourceService],
